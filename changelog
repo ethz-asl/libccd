@@ -1,0 +1,647 @@
+libccd (1.5-97) unstable; urgency=low
+
+  * Initial commit of ReMake build system port
+
+ -- Ralf Kaestner <ralf.kaestner@gmail.com>  Fri, 13 Feb 2015 15:29:00 +0100
+
+libccd (1.5-96) unstable; urgency=low
+
+  * libccd v1.5
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sun, 12 Jan 2014 16:05:09 +0100
+
+libccd (1.4-95) unstable; urgency=low
+
+  * Removed ccdGJKDist() and related functions and tests.
+  * It is unfinished implementation of distance computation using GJK
+  * algorithm. This functionality was moved to gjk-dist branch until it
+    is
+  * finished and properly tested.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sun, 12 Jan 2014 15:57:14 +0100
+
+libccd (1.4-94) unstable; urgency=low
+
+  * EPA: Improved check for stopping of expanding polytope.
+  * Simple test was added. It checks whether the obtained support point
+    can
+  * significantly expand the polytope surrounding the origin.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sun, 12 Jan 2014 15:47:20 +0100
+
+libccd (1.4-93) unstable; urgency=low
+
+  * First doc mostly copied from homepage.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 23 May 2013 14:24:41 +0200
+
+libccd (1.4-92) unstable; urgency=low
+
+  * Created skeleton for documentation generation.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 23 May 2013 13:53:21 +0200
+
+libccd (0.1-91) unstable; urgency=low
+
+  * Fixed cmake recipe for compilation on win.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 06 Feb 2013 14:31:38 +0100
+
+libccd (0.1-90) unstable; urgency=low
+
+  * Added definition of CCD_FMIN for compilation on win.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 06 Feb 2013 14:28:26 +0100
+
+libccd (0.1-89) unstable; urgency=low
+
+  * Version 1.4, SO version 2.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sat, 07 Jul 2012 15:06:55 +0200
+
+libccd (0.1-88) unstable; urgency=low
+
+  * Added ccdGJKDist() function.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sat, 07 Jul 2012 15:04:27 +0200
+
+libccd (0.1-87) unstable; urgency=low
+
+  * Fixed test suites.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sat, 07 Jul 2012 14:59:09 +0200
+
+libccd (0.1-86) unstable; urgency=low
+
+  * Fixed mpr separation test.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sun, 01 Jul 2012 14:42:27 +0200
+
+libccd (0.1-85) unstable; urgency=low
+
+  * alloc.c removed from cmake and autoconf recepies.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 16 May 2012 07:54:39 +0200
+
+libccd (0.1-84) unstable; urgency=low
+
+  * Got rid of warnings appearing on 64-bit machine.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 08 May 2012 16:44:20 +0200
+
+libccd (0.1-83) unstable; urgency=low
+
+  * Fix of handling failed memory allocation.
+  * Failed memory allocations now must be handled from outside the
+    library.
+  * The functions that use allocations on heap return -2 if memory allocation
+  * fails.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 08 May 2012 16:28:21 +0200
+
+libccd (0.1-82) unstable; urgency=low
+
+  * Updated cmake recipe.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Sat, 28 Apr 2012 09:42:04 +0200
+
+libccd (0.1-81) unstable; urgency=low
+
+  * Version 1.2
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 20 Mar 2012 13:14:24 +0100
+
+libccd (0.1-80) unstable; urgency=low
+
+  * Update cmake's recipe - dynamic lib is also built.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 22 Feb 2012 10:23:49 +0100
+
+libccd (0.1-79) unstable; urgency=low
+
+  * Updated cmake compilation chain, pkgconfig conf file is generated.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 13 Feb 2012 12:44:34 +0100
+
+libccd (0.1-78) unstable; urgency=low
+
+  * Added support for CMake.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 09 Feb 2012 09:31:54 +0100
+
+libccd (0.1-77) unstable; urgency=low
+
+  * Added acknowledgement to Symbrion and Replicator projects.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 21 Jan 2011 12:37:17 +0100
+
+libccd (0.1-76) unstable; urgency=low
+
+  * Max iterations for MPR and portalReachTolerance() fix.
+  * ccd_t's member max_iterations is from now used also in MPR algorithm.
+  * portalReachTolerance() has been fixed - on some platforms term
+  ((v2 - v1) x (v3 - v1)) . (v1 - v3) (where v1,v2,v3 are vectors) results
+    in
+  * non-zero value due to impreciseness of floating point numbers. This
+    should
+  * be fixed in this patch (and also max_iterations should help to solve
+    this
+  * problem).
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 19 Jan 2011 14:13:06 +0100
+
+libccd (0.1-75) unstable; urgency=low
+
+  * Fixed floating point inaccuracy in MPR's discoverPortal() subroutine.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 18 Nov 2010 23:52:08 +0100
+
+libccd (0.1-74) unstable; urgency=low
+
+  * ANSI C offsetof() macro used instead of previous implementation.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 11 Nov 2010 09:28:16 +0100
+
+libccd (0.1-73) unstable; urgency=low
+
+  * Some fixes for MSVC compiler (and generally for other compilers than
+    GCC).
+  * Thanks to Oleh Derevenko.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 10 Nov 2010 11:40:57 +0100
+
+libccd (0.1-72) unstable; urgency=low
+
+  * Lists don't use typeof() construct any more.
+  * typeof() is feature of GCC and it's not part of any C standard - so
+    to
+  * enable to compile it with other compilers (such as MSVC) typeof had
+    to be
+  * removed.
+  * Thanks to Daniel K. O. for this patch.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 10 Nov 2010 11:25:23 +0100
+
+libccd (0.1-71) unstable; urgency=low
+
+  * Version 1.0.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 04 Nov 2010 17:46:32 +0100
+
+libccd (0.1-70) unstable; urgency=low
+
+  * Changed copyright note.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 04 Nov 2010 17:43:48 +0100
+
+libccd (0.1-69) unstable; urgency=low
+
+  * Fixed autotools compile chain broken by renaming to libccd.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 04 Nov 2010 13:52:15 +0100
+
+libccd (0.1-68) unstable; urgency=low
+
+  * Renamed to CCD (Convex Collision Detection).
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 04 Nov 2010 13:26:10 +0100
+
+libccd (0.1-67) unstable; urgency=low
+
+  * Version 0.2
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 08 Oct 2010 13:53:51 +0200
+
+libccd (0.1-66) unstable; urgency=low
+
+  * Fixed and simplified make-release.sh script.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 08 Oct 2010 13:52:00 +0200
+
+libccd (0.1-65) unstable; urgency=low
+
+  * Fixed autotools compile chain.
+  * Also disabled building shared library by default.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 08 Oct 2010 13:40:47 +0200
+
+libccd (0.1-64) unstable; urgency=low
+
+  * gjkSupport() removed from library.
+  * This really shouldn't be part of libgjk.a library - moved to
+    testsuites.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 08 Oct 2010 13:33:09 +0200
+
+libccd (0.1-63) unstable; urgency=low
+
+  * Updated README file.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 08 Oct 2010 13:04:41 +0200
+
+libccd (0.1-62) unstable; urgency=low
+
+  * Configure's --enable-double changed to --enable-double-precision.
+  * The reason is compatibility with ODE which uses --enable-double-precision.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 01 Oct 2010 15:12:44 +0200
+
+libccd (0.1-61) unstable; urgency=low
+
+  * Update README file.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 01 Oct 2010 14:22:03 +0200
+
+libccd (0.1-60) unstable; urgency=low
+
+  * MPR finally merged into master branch.
+  * Fixed include header issues and compile chain.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 01 Oct 2010 10:40:16 +0200
+
+libccd (0.1-59) unstable; urgency=low
+
+  * Merge branch 'mpr'
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 01 Oct 2010 10:27:06 +0200
+
+libccd (0.1-58) unstable; urgency=low
+
+  * Added comment to gjkMPRPenetration() declaration.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 01 Oct 2010 10:20:05 +0200
+
+libccd (0.1-57) unstable; urgency=low
+
+  * MPR: Finished implementation, testsuites and some benchmarks.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 30 Sep 2010 16:39:04 +0200
+
+libccd (0.1-56) unstable; urgency=low
+
+  * MPR: Center of Minkowski diff can't lie on origin.
+  * If center lies on origin (0,0,0) it's moved from origin by multiple
+    of
+  * GJK_EPS - this should be small enought to have minimal error and
+    center
+  * still lies within Minkowski difference.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 30 Sep 2010 11:19:49 +0200
+
+libccd (0.1-55) unstable; urgency=low
+
+  * Fixed compilation "out-of-tree" for testsuites.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 30 Sep 2010 11:05:08 +0200
+
+libccd (0.1-54) unstable; urgency=low
+
+  * config.h.in renamed to config.h.m4 to bypass collision with autoconf.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 30 Sep 2010 10:39:53 +0200
+
+libccd (0.1-53) unstable; urgency=low
+
+  * Fixed install rule in Makefile.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 30 Sep 2010 10:33:29 +0200
+
+libccd (0.1-52) unstable; urgency=low
+
+  * Added autotools support.
+  * Thanks to Daniel K. O.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 29 Sep 2010 22:04:28 +0200
+
+libccd (0.1-51) unstable; urgency=low
+
+  * Removed gjk symlink.
+  * Instead of using symlink to current directory, gjk directory was
+    created
+  * and all header files moved there.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 29 Sep 2010 14:27:00 +0200
+
+libccd (0.1-50) unstable; urgency=low
+
+  * Removed GCC-specific macros.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 29 Sep 2010 14:17:56 +0200
+
+libccd (0.1-49) unstable; urgency=low
+
+  * MPR: gjkMPRPenetration() implemented - first iteration.
+  * Still not fully tested and for sure will need some modifications -
+    mainly
+  * in obtaining position vector.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 27 Sep 2010 15:59:19 +0200
+
+libccd (0.1-48) unstable; urgency=low
+
+  * MPR: Portal refinement refactored into several more functions.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 27 Sep 2010 14:42:00 +0200
+
+libccd (0.1-47) unstable; urgency=low
+
+  * Points on sphere made global variable (in vec3.h).
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 27 Sep 2010 12:15:49 +0200
+
+libccd (0.1-46) unstable; urgency=low
+
+  * MPR: Prepared API of gjkMPRPenetration().
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 27 Sep 2010 09:07:18 +0200
+
+libccd (0.1-45) unstable; urgency=low
+
+  * MPR: refinement of portal moved to separate function.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 24 Sep 2010 16:58:53 +0200
+
+libccd (0.1-44) unstable; urgency=low
+
+  * Implemented MPR for collision detection. First iteration.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 24 Sep 2010 15:10:19 +0200
+
+libccd (0.1-43) unstable; urgency=low
+
+  * Fixed typo in README file.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 24 Sep 2010 11:59:46 +0200
+
+libccd (0.1-42) unstable; urgency=low
+
+  * Updated README file.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 15:54:06 +0200
+
+libccd (0.1-41) unstable; urgency=low
+
+  * Updated help target.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 14:18:34 +0200
+
+libccd (0.1-40) unstable; urgency=low
+
+  * Added help target to Makefile.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 13:46:22 +0200
+
+libccd (0.1-39) unstable; urgency=low
+
+  * Improved compile chain and configuration.
+  * Introduced config.h.in file from which is assembled config.h file
+    that
+  * includes all configuration options available during compilation.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 13:22:31 +0200
+
+libccd (0.1-38) unstable; urgency=low
+
+  * Support function is defined separately for obj1 and obj2.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 12:44:48 +0200
+
+libccd (0.1-37) unstable; urgency=low
+
+  * License changed to BSD.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 20 Sep 2010 11:42:13 +0200
+
+libccd (0.1-36) unstable; urgency=low
+
+  * libgjk can be compiled both in double and signle precision.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 16 Sep 2010 15:35:04 +0200
+
+libccd (0.1-35) unstable; urgency=low
+
+  * Backup.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 15 Sep 2010 16:51:16 +0200
+
+libccd (0.1-34) unstable; urgency=low
+
+  * Speed up of gjkPtNearest() function.
+  * Nearest element to origin is cached during creation of elements which
+    speed
+  * up whole algorithm twice.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 15 Sep 2010 14:07:16 +0200
+
+libccd (0.1-33) unstable; urgency=low
+
+  * Improved testsuites to return unique solution.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 14 Sep 2010 15:48:48 +0200
+
+libccd (0.1-32) unstable; urgency=low
+
+  * Fixed boxbox testsuites, added bench program.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 14 Sep 2010 13:29:52 +0200
+
+libccd (0.1-31) unstable; urgency=low
+
+  * CU updated.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 14 Sep 2010 13:28:27 +0200
+
+libccd (0.1-30) unstable; urgency=low
+
+  * All header files encapsuled in 'extern "C"' block for C++ compiler.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 14 Sep 2010 11:39:16 +0200
+
+libccd (0.1-29) unstable; urgency=low
+
+  * Cleanup and fixed testsuites.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 13 Sep 2010 14:50:45 +0200
+
+libccd (0.1-28) unstable; urgency=low
+
+  * GJK+EPA: Added testsuites, fixed some minor issues.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 13 Sep 2010 14:43:09 +0200
+
+libccd (0.1-27) unstable; urgency=low
+
+  * GJK+EPA: testsuites prepared for (visual) testing.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 09 Sep 2010 16:22:41 +0200
+
+libccd (0.1-26) unstable; urgency=low
+
+  * Added explanatory note into gjkPtNearest().
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 09 Sep 2010 14:20:22 +0200
+
+libccd (0.1-25) unstable; urgency=low
+
+  * GJK+EPA: most issues seems to be fixed.
+  * Source code still contains many and many debug printings that must
+    be
+  * removed after deep testing verifies correctness of algorithm.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 09 Sep 2010 14:13:22 +0200
+
+libccd (0.1-24) unstable; urgency=low
+
+  * Penetrate: backup, buggy implementation.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 08 Sep 2010 16:03:13 +0200
+
+libccd (0.1-23) unstable; urgency=low
+
+  * GJK+EPA algorithm moved to separate function.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 08 Sep 2010 12:45:10 +0200
+
+libccd (0.1-22) unstable; urgency=low
+
+  * Special struct gjk_support_t used for handling support points.
+  * All functions uses function __gjkSupport() for finding support points
+    and
+  * gjk_support_t struct holds support point along with original support
+  * points of objects.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 07 Sep 2010 15:35:55 +0200
+
+libccd (0.1-21) unstable; urgency=low
+
+  * Added make-release.sh script.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 07 Sep 2010 11:26:58 +0200
+
+libccd (0.1-20) unstable; urgency=low
+
+  * Added some papers (in pdf) to repository.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 03 Sep 2010 14:32:15 +0200
+
+libccd (0.1-19) unstable; urgency=low
+
+  * Fixed testsuites.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 03 Sep 2010 14:29:06 +0200
+
+libccd (0.1-18) unstable; urgency=low
+
+  * Added explanations to comments and notes about license.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 03 Sep 2010 14:11:30 +0200
+
+libccd (0.1-17) unstable; urgency=low
+
+  * Fixed expandPolytope() for edge case.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Fri, 03 Sep 2010 09:18:36 +0200
+
+libccd (0.1-16) unstable; urgency=low
+
+  * GJK migrated to new polytope.
+  * This fixes many issues but it still needs much more testing and comments
+    to
+  * explain the magic...
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 01 Sep 2010 17:09:21 +0200
+
+libccd (0.1-15) unstable; urgency=low
+
+  * Implemented creation and deletion of polytope.
+  * Also implemented dump algorithm for searching of element nearest to
+    origin.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 01 Sep 2010 14:28:01 +0200
+
+libccd (0.1-14) unstable; urgency=low
+
+  * Vec3: point-segment distance.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 01 Sep 2010 12:56:23 +0200
+
+libccd (0.1-13) unstable; urgency=low
+
+  * Fixed GJK->EPA transition.
+  * Fixed situation when single triangle comes from GJK and this triangle
+    lies
+  * on minkowski edge (touch contact).
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 31 Aug 2010 16:25:00 +0200
+
+libccd (0.1-12) unstable; urgency=low
+
+  * Fixed starting of of EPA from GJK. (hopefuly)
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 31 Aug 2010 16:10:15 +0200
+
+libccd (0.1-11) unstable; urgency=low
+
+  * EPA: backup.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Tue, 31 Aug 2010 14:49:33 +0200
+
+libccd (0.1-10) unstable; urgency=low
+
+  * EPA: First implementation - without testing.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 30 Aug 2010 17:40:23 +0200
+
+libccd (0.1-9) unstable; urgency=low
+
+  * gjkVec3PointTriDist2() returns also witness point.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 30 Aug 2010 14:53:17 +0200
+
+libccd (0.1-8) unstable; urgency=low
+
+  * Point-triangle distance implemented.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 30 Aug 2010 14:33:08 +0200
+
+libccd (0.1-7) unstable; urgency=low
+
+  * Implmented support() function for cylinders.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 26 Aug 2010 14:38:17 +0200
+
+libccd (0.1-6) unstable; urgency=low
+
+  * Implemented support() function for spheres.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Thu, 26 Aug 2010 14:14:06 +0200
+
+libccd (0.1-5) unstable; urgency=low
+
+  * Generalized support() function.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 25 Aug 2010 15:52:53 +0200
+
+libccd (0.1-4) unstable; urgency=low
+
+  * Implemented box support function for rotation.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 25 Aug 2010 15:17:20 +0200
+
+libccd (0.1-3) unstable; urgency=low
+
+  * Written some tests on boxes, fixed some numerical issues.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Wed, 25 Aug 2010 10:13:42 +0200
+
+libccd (0.1-2) unstable; urgency=low
+
+  * Backup - testing boxes.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 23 Aug 2010 17:31:58 +0200
+
+libccd (0.1-1) unstable; urgency=low
+
+  * Init. Implemented bool test on intersection - not tested.
+
+ -- Daniel Fiser <danfis@danfis.cz>  Mon, 23 Aug 2010 16:05:17 +0200
