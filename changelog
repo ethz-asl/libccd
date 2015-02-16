@@ -1,3 +1,9 @@
+libccd (1.5-101) unstable; urgency=low
+
+  * Updated README.md
+  
+ -- Ralf Kaestner <ralf.kaestner@gmail.com>  Mon, 16 Feb 2015 16:53:00 +0100
+ 
 libccd (1.5-100) unstable; urgency=low
 
   * Added missing linkage on librt to cu executable target
