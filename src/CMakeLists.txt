@@ -1,4 +1,5 @@
 remake_find_library(m math.h)
+remake_find_library(rt time.h)
 
 remake_project_option(DOUBLE_PRECISION "double precision support" OFF)
 remake_project_get(DOUBLE_PRECISION OUTPUT CCD_DOUBLE)
