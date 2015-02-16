@@ -1,57 +1,57 @@
-cmake_minimum_required(VERSION 2.8)
-project(libccd C)
+cmake_minimum_required(VERSION 2.6)
 
-set(CCD_VERSION "1.5")
-set(CCD_SOVERSION "2")
-set(PKG_DESC "Library for collision detection between convex shapes")
-set(LIB_SUFFIX "" CACHE STRING  "Library installation directory suffix")
+include(ReMake)
 
-include_directories("src/")
+remake_project(
+  libccd
+  VERSION 1.5
+  RELEASE beta
+  SUMMARY "Library for collision detection between two convex shapes."
+  AUTHOR "Daniel Fiser"
+  CONTACT "ralf.kaestner@gmail.com"
+  HOME "http://libccd.danfis.cz"
+  LICENSE "BSD License (BSD)"
+  README README.md
+  PREFIX ccd-
+  INSTALL /usr
+  HEADER_DESTINATION include/ccd
+)
 
-# make sure only DOUBLE or SINGLE is set; default to SINGLE
-if (${CCD_SINGLE})
-  set(CCD_DOUBLE false)
-else()
-  set(CCD_SINGLE true)
-endif()
+remake_doc(
+  html
+)
 
-if (${CCD_DOUBLE})
-  set(CCD_SINGLE false)
-endif()
+remake_pack_deb(
+)
+remake_pack_deb(
+  COMPONENT dev
+  DESCRIPTION "development headers"
+  DEPENDS libccd
+)
+remake_pack_deb(
+  ARCH all
+  COMPONENT doc
+  DESCRIPTION "documentation"
+)
 
-# set the default build type
-if (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release)
-endif()
-
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/ccd/config.h.cmake.in" "${CMAKE_CURRENT_SOURCE_DIR}/src/ccd/config.h")
-
-if(NOT WIN32)
-    find_library(MATH m)
-else()
-    set(MATH "")
-endif()
-
-set(SOURCE_FILES
-  src/ccd.c
-  src/mpr.c
-  src/polytope.c
-  src/support.c
-  src/vec3.c)
-
-add_library(ccd SHARED ${SOURCE_FILES})
-set_target_properties(ccd PROPERTIES VERSION ${CCD_VERSION} SOVERSION ${CCD_SOVERSION})
-
-target_link_libraries(ccd ${MATH})
-
-add_library(ccd_static STATIC ${SOURCE_FILES})
-set_target_properties(ccd_static PROPERTIES OUTPUT_NAME ccd)
-target_link_libraries(ccd_static ${MATH})
-
-set(pkg_conf_file "${CMAKE_CURRENT_SOURCE_DIR}/ccd.pc")
-configure_file("${pkg_conf_file}.in" "${pkg_conf_file}" @ONLY)
-
-install(TARGETS ccd ccd_static ARCHIVE DESTINATION lib${LIB_SUFFIX}/ LIBRARY DESTINATION lib${LIB_SUFFIX}/)
-install(DIRECTORY src/ccd DESTINATION include FILES_MATCHING PATTERN "*.h")
-install(FILES "${pkg_conf_file}" DESTINATION lib${LIB_SUFFIX}/pkgconfig/ COMPONENT pkgconfig)
-
+remake_distribute_deb(
+  DISTRIBUTION lucid
+  SECTION libs
+  UPLOAD ppa:kralf/asl
+  DEPENDS python-sphinx remake doxygen pkg-config
+  PASS CMAKE_BUILD_TYPE LIBCCD_GIT_REVISION
+)
+remake_distribute_deb(
+  DISTRIBUTION precise
+  SECTION libs
+  UPLOAD ppa:kralf/asl
+  DEPENDS python-sphinx remake doxygen pkg-config
+  PASS CMAKE_BUILD_TYPE LIBCCD_GIT_REVISION
+)
+remake_distribute_deb(
+  DISTRIBUTION trusty
+  SECTION libs
+  UPLOAD ppa:kralf/asl
+  DEPENDS python-sphinx remake doxygen pkg-config
+  PASS CMAKE_BUILD_TYPE LIBCCD_GIT_REVISION
+)

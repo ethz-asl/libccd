@@ -67,13 +67,8 @@ traditional CMake way, you must install ReMake following
 
 #### Installing build dependencies
 
-The build dependencies of this project are available from the standard
-package repositories of recent Ubuntu releases. To install them, simply
-use the command
-
-```
-sudo apt-get install libboost-system-dev libboost-thread-dev libboost-signals-dev libboost-chrono-dev libboost-program-options-dev doxygen pkg-config
-```
+This project does not have any build dependencies other than the standard
+libraries.
 
 #### Building with CMake
 

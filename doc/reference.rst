@@ -1,6 +1,6 @@
 Reference
 ==========
 
-.. literalinclude:: ../src/ccd/ccd.h
+.. literalinclude:: ../src/lib/ccd/ccd.h
    :language: c
    :linenos:

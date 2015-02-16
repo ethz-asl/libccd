@@ -25,8 +25,8 @@ TEST_SUITES {
 };
 int main(int argc, char *argv[])
 {
-    CU_SET_OUT_PREFIX("regressions/");
-    CU_RUN(argc, argv);
+    CU_SET_OUT_PREFIX(argv[1]);
+    CU_RUN(argc-1, &argv[1]);
 
     return 0;
 }

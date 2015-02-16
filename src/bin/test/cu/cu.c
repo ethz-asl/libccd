@@ -332,15 +332,15 @@ void cu_set_out_prefix(const char *str)
 
 static void redirect_out_err(const char *test_name)
 {
-    char buf[100];
+    char buf[CU_OUT_PREFIX_LENGTH+128];
 
-    snprintf(buf, 99, "%stmp.%s.out", cu_out_prefix, test_name);
+    snprintf(buf, sizeof(buf)-1, "%stmp.%s.out", cu_out_prefix, test_name);
     if (freopen(buf, "w", stdout) == NULL){
         perror("Redirecting of stdout failed");
         exit(-1);
     }
 
-    snprintf(buf, 99, "%stmp.%s.err", cu_out_prefix, test_name);
+    snprintf(buf, sizeof(buf)-1, "%stmp.%s.err", cu_out_prefix, test_name);
     if (freopen(buf, "w", stderr) == NULL){
         perror("Redirecting of stderr failed");
         exit(-1);

@@ -1,3 +1,9 @@
+libccd (1.5-98) unstable; urgency=low
+
+  * Complete ReMake build system port
+
+ -- Ralf Kaestner <ralf.kaestner@gmail.com>  Mon, 16 Feb 2015 06:49:00 +0100
+
 libccd (1.5-97) unstable; urgency=low
 
   * Initial commit of ReMake build system port
