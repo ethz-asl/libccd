@@ -1,3 +1,9 @@
+libccd (1.5-102) unstable; urgency=low
+
+  * Removed lucid distribution due to documentation build failures
+  
+ -- Ralf Kaestner <ralf.kaestner@gmail.com>  Tue, 17 Feb 2015 10:01:00 +0100
+ 
 libccd (1.5-101) unstable; urgency=low
 
   * Updated README.md

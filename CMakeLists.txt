@@ -35,13 +35,6 @@ remake_pack_deb(
 )
 
 remake_distribute_deb(
-  DISTRIBUTION lucid
-  SECTION libs
-  UPLOAD ppa:kralf/asl
-  DEPENDS python-sphinx remake doxygen pkg-config
-  PASS CMAKE_BUILD_TYPE LIBCCD_GIT_REVISION
-)
-remake_distribute_deb(
   DISTRIBUTION precise
   SECTION libs
   UPLOAD ppa:kralf/asl
